@@ -35,4 +35,4 @@ The endpoint response is printed as JSON. A response status of `failed`, `error`
 
 ## Tests
 
-Run `npm run test:runtime` with Node.js 18 or newer.
+Run `npm run test:hybrid-runtime` from the repository root, or run `node --test runtime/hybrid-runtime.test.js` directly. Node.js 18 or newer is required.
