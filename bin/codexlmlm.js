@@ -139,6 +139,19 @@ function findCodexExecutable(targetTriple) {
  */
 async function main() {
   if (process.argv[2] === "lmlm") {
+    const packageManager = detectPackageManager();
+    const pmEnvVar =
+      packageManager === "bun"
+        ? "CODEX_MANAGED_BY_BUN"
+        : packageManager === "pnpm"
+          ? "CODEX_MANAGED_BY_PNPM"
+          : "CODEX_MANAGED_BY_NPM";
+    process.env.CODEX_MANAGED_PACKAGE_ROOT = codexPackageRoot;
+    delete process.env.CODEX_MANAGED_BY_NPM;
+    delete process.env.CODEX_MANAGED_BY_BUN;
+    delete process.env.CODEX_MANAGED_BY_PNPM;
+    process.env[pmEnvVar] = "1";
+
     const { runLmlmCommand } = await import("../runtime/hybrid-runtime.js");
     const exitCode = await runLmlmCommand(process.argv.slice(3), {
       codexExecutable: () => findCodexExecutable(getTargetTriple()),
