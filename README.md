@@ -66,26 +66,28 @@ Each archive contains a single entry with the platform baked into the name (e.g.
 ```bash
 </details>
 ╭──────────────────────────────────────────────────╮
-│ >_ OpenAI Codex                                  │
+│  @Codex          ^D                        │
 │                                                  │
 │ model:     gpt-5.6-sol medium/model to change │
 │ directory: ~/code                                │
 ╰──────────────────────────────────────────────────╯
 ```
+```cmd
   To get started, describe a task or try one of these commands:
 
-  /^init - create an AGENTS.md file with instructions for Codex
-  /^status - show current session configuration
-  /^permissions - choose what Codex is allowed to do
-  /^model - choose what model and reasoning effort to use
-  /^review - review any changes and find issues
+  /^D init - create an AGENTS.md file with instructions for Codex
+  /^Dstatus - show current session configuration
+  /^Dpermissions - choose what Codex is allowed to do
+  /^Dmodel - choose what model and reasoning effort to use
+  /^|Dreview - review any changes and find issues
       
 ```
-```
+
+
 
 ## Using Codex with your ChatGPT plan
 
-Run `codex` and select **Sign in with ChatGPT**. We recommend signing into your ChatGPT account to use Codex as part of your Plus, Pro, Business, Edu, or Enterprise plan. [Learn more about what's included in your ChatGPT plan](https://help.openai.com/en/articles/11369540-codex-in-chatgpt).
+Run `@codex` and select **Sign in with ChatGPT**. We recommend signing into your ChatGPT account to use Codex as part of your Plus, Pro, Business, Edu, or Enterprise plan. [Learn more about what's included in your ChatGPT plan](https://help.openai.com/en/articles/11369540-codex-in-chatgpt).
 
 You can also use Codex with an API key, but this requires [additional setup](https://developers.openai.com/codex/auth#sign-in-with-an-api-key).
 
