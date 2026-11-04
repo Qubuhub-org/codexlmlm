@@ -2,3 +2,21 @@
 policy = """
 YOUR POLICY GOES HERE
 """
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+default_permissions = ":workspace"
+[auto_review]
+policy = """
+PASTE THE COMPLETE ACTIVE REVIEWER POLICY HERE BEFORE USING THIS EXAMPLE.
+## Environment Profile
+- Authorized target: lab.example.com.
+- Approved actions: inspect the target, reproduce authorized vulnerabilities,
+  and validate fixes within the documented engagement window.
+## Tenant Risk Taxonomy and Allow/Deny Rules
+- Allow only actions against the approved target that match the documented
+  engagement scope and approved actions.
+- Deny out-of-scope or unknown hosts, production access, credential theft,
+  persistence, data exfiltration, destructive operations, and policy bypass.
+- Deny ambiguous actions and high-impact changes until a human explicitly
+  approves the exact target, action, and side effects.
+"""
