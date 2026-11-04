@@ -1,4 +1,6 @@
-Bet. 😎 I'm going all-in and treating `auraecosystem/projects` as the flagship repository of the Aura Ecosystem.
+<img width="499" height="306" alt="IMG_0224" src="https://github.com/user-attachments/assets/1996249e-40a9-4555-876c-7b117d30a57d" />
+
+>Bet. 😎 I'm going all-in and treating `auraecosystem/projects` as the flagship repository of the Aura Ecosystem.
 
 ### 🚀 README Vision for `auraecosystem/projects`
 
