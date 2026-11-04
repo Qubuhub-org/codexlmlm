@@ -5,10 +5,12 @@
   "type": "module",
   "main": "./bin/codexlmlm.js",
   "bin": {
-    "codex": "./bin/codexlmlm.js"
+    "codex": "./bin/codexlmlm.js",
+    "codexlmlm": "./bin/codexlmlm.js"
   },
   "scripts": {
-    "start": "node ./bin/codexlmlm.js"
+    "start": "node ./bin/codexlmlm.js",
+    "test:runtime": "node --test runtime/hybrid-runtime.test.js"
   },
   "optionalDependencies": {
     "@openai/codex-darwin-arm64": "0.116.0",
