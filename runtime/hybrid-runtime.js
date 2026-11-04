@@ -59,7 +59,7 @@ export function validateEndpoint(value) {
   } catch {
     throw new Error("LMLM_BASE_URL must be a valid absolute URL");
   }
-  const localHost = ["localhost", "127.0.0.1", "::1"].includes(endpoint.hostname);
+  const localHost = ["localhost", "127.0.0.1", "::1", "[::1]"].includes(endpoint.hostname);
   if (endpoint.protocol !== "https:" && !(endpoint.protocol === "http:" && localHost)) {
     throw new Error("LMLM_BASE_URL must use HTTPS (HTTP is allowed only for localhost)");
   }
