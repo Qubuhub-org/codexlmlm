@@ -175,7 +175,8 @@ export async function runLmlmCommand(argv, dependencies = {}) {
   if (backend === "codex") {
     return runCodex({
       executable: typeof dependencies.codexExecutable === "function"
-        ? dependencies.codexExecutable()\n        : dependencies.codexExecutable,
+        ? dependencies.codexExecutable()
+        : dependencies.codexExecutable,
       task: options.task,
       workspace,
     });
