@@ -1,0 +1,30 @@
+name: Hybrid runtime tests
+
+on:
+  push:
+    branches: [codexlmlm]
+    paths:
+      - "runtime/**"
+      - "bin/codexlmlm.js"
+      - "Package.json"
+      - ".github/workflows/hybrid-runtime.yml"
+  pull_request:
+    paths:
+      - "runtime/**"
+      - "bin/codexlmlm.js"
+      - "Package.json"
+      - ".github/workflows/hybrid-runtime.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  node-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run adapter unit tests
+        run: node --test runtime/hybrid-runtime.test.js
