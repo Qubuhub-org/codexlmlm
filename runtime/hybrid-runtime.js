@@ -144,6 +144,9 @@ async function runLmlm({ env, task, workspace, timeoutMs, stdout }) {
     if (!result || typeof result !== "object" || Array.isArray(result)) {
       throw new Error("LMLM endpoint response must be a JSON object");
     }
+    if (typeof result.status !== "string" || !result.status.trim()) {
+      throw new Error("LMLM endpoint response must include a non-empty status string");
+    }
     stdout.write(`${JSON.stringify(result, null, 2)}\n`);
     return ["failed", "error", "cancelled"].includes(result.status) ? 1 : 0;
   } catch (error) {
@@ -171,7 +174,8 @@ export async function runLmlmCommand(argv, dependencies = {}) {
 
   if (backend === "codex") {
     return runCodex({
-      executable: typeof dependencies.codexExecutable === "function"\n        ? dependencies.codexExecutable()\n        : dependencies.codexExecutable,
+      executable: typeof dependencies.codexExecutable === "function"
+        ? dependencies.codexExecutable()\n        : dependencies.codexExecutable,
       task: options.task,
       workspace,
     });
