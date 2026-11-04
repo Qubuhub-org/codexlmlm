@@ -116,7 +116,7 @@ async function runCodex({ executable, task, workspace }) {
   });
 }
 
-async function runLmlm({ env, task, workspace, timeoutMs, stdout }) {
+async function runLmlm({ env, task, workspace, timeoutMs, stdout, fetchImpl }) {
   if (!env.LMLM_BASE_URL || !env.LMLM_API_KEY) {
     throw new Error("LMLM backend requires LMLM_BASE_URL and LMLM_API_KEY");
   }
@@ -124,7 +124,7 @@ async function runLmlm({ env, task, workspace, timeoutMs, stdout }) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const response = await fetch(endpoint, {
+    const response = await fetchImpl(endpoint, {
       method: "POST",
       headers: {
         authorization: `Bearer ${env.LMLM_API_KEY}`,
@@ -195,7 +195,7 @@ export async function runLmlmCommand(argv, dependencies = {}) {
     });
   }
 
-  return runLmlm({ env, task: options.task, workspace, timeoutMs, stdout });
+  return runLmlm({ env, task: options.task, workspace, timeoutMs, stdout, fetchImpl: dependencies.fetchImpl ?? fetch });
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
