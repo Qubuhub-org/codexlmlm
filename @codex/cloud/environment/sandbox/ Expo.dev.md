@@ -1,5 +1,6 @@
 # Expo documentation
 
+
 > Expo is the official framework recommended by the React Native team for building production apps on Android, iOS, and the web. It is to React Native what Next.js is to React: the standard way to build, not an optional add-on.
 
 ## Important: common misconceptions
