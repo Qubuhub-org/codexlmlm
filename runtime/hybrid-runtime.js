@@ -81,14 +81,26 @@ async function resolveWorkspace(workspace) {
 
 function printStatus(env, stdout) {
   const configured = Boolean(env.LMLM_BASE_URL && env.LMLM_API_KEY);
+  let endpointLabel = "not set";
+  if (env.LMLM_BASE_URL) {
+    try {
+      const endpoint = new URL(env.LMLM_BASE_URL);
+      endpoint.username = "";
+      endpoint.password = "";
+      endpoint.search = "";
+      endpoint.hash = "";
+      endpointLabel = endpoint.toString();
+    } catch {
+      endpointLabel = "configured (invalid URL)";
+    }
+  }
   stdout.write("CodexLMLM hybrid runtime\n");
   stdout.write(`Codex backend: available through the bundled native Codex executable\n`);
   stdout.write(`LMLM backend: ${configured ? "configured" : "not configured"}\n`);
-  stdout.write(`LMLM endpoint: ${env.LMLM_BASE_URL || "not set"}\n`);
+  stdout.write(`LMLM endpoint: ${endpointLabel}\n`);
   stdout.write("Default backend: auto (LMLM when configured, otherwise Codex)\n");
   stdout.write("Execution policy: backend policy applies; LMLM requests require approval\n");
 }
-
 async function runCodex({ executable, task, workspace }) {
   if (!executable) throw new Error("The bundled Codex executable could not be resolved");
   const child = spawn(executable, ["exec", "--cd", workspace, task], { stdio: "inherit" });
@@ -119,7 +131,8 @@ async function runLmlm({ env, task, workspace, timeoutMs, stdout }) {
         "content-type": "application/json",
         accept: "application/json",
       },
-      redirect: "error",\n      body: JSON.stringify({
+      redirect: "error",
+      body: JSON.stringify({
         protocol: "codexlmlm.tasks.v1",
         task,
         workspace,
