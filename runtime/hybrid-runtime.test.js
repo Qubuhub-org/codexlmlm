@@ -25,7 +25,7 @@ test("auto backend selects LMLM only when endpoint and key are configured", () =
 
 test("LMLM endpoint requires HTTPS except loopback", () => {
   assert.equal(validateEndpoint("https://agent.example").href, "https://agent.example/v1/tasks");
-  assert.equal(validateEndpoint("http://127.0.0.1:8080").href, "http://127.0.0.1:8080/v1/tasks");
+  assert.equal(validateEndpoint("http://127.0.0.1:8080").href, "http://127.0.0.1:8080/v1/tasks");\n  assert.equal(validateEndpoint("http://[::1]:8080").href, "http://[::1]:8080/v1/tasks");
   assert.throws(() => validateEndpoint("http://agent.example"), /must use HTTPS/);
   assert.throws(() => validateEndpoint("https://user:pass@agent.example"), /Do not embed credentials/);
 });
