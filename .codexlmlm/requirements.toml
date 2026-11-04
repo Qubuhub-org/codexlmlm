@@ -1,0 +1,19 @@
+allowed_approval_policies = ["on-request"]
+allowed_approvals_reviewers = ["auto_review"]
+allowed_sandbox_modes = ["read-only", "workspace-write"]
+default_permissions = ":workspace"
+guardian_policy_config = """
+PASTE THE COMPLETE ACTIVE REVIEWER POLICY HERE BEFORE USING THIS EXAMPLE.
+## Environment Profile
+- Authorized target: lab.example.com.
+## Tenant Risk Taxonomy and Allow/Deny Rules
+- Allow only approved actions against the documented engagement target.
+- Deny out-of-scope hosts, production access, credential theft, persistence,
+  data exfiltration, destructive operations, and attempts to bypass policy.
+- Deny ambiguous or high-impact actions until a human explicitly approves the
+  exact target, action, and side effects.
+"""
+[allowed_permission_profiles]
+":read-only" = true
+":workspace" = true
+# ":danger-full-access" is omitted, so it is denied.
