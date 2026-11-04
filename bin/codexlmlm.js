@@ -143,7 +143,7 @@ async function main() {
     const exitCode = await runLmlmCommand(process.argv.slice(3), {
       codexExecutable: () => findCodexExecutable(getTargetTriple()),
     });
-    process.exit(exitCode);
+    process.exitCode = exitCode;
     return;
   }
 
