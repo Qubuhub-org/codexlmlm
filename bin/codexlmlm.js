@@ -138,6 +138,15 @@ function findCodexExecutable(targetTriple) {
  * Launches the native executable, proxying process arguments and signals.
  */
 async function main() {
+  if (process.argv[2] === "lmlm") {
+    const { runLmlmCommand } = await import("../runtime/hybrid-runtime.js");
+    const exitCode = await runLmlmCommand(process.argv.slice(3), {
+      codexExecutable: () => findCodexExecutable(getTargetTriple()),
+    });
+    process.exit(exitCode);
+    return;
+  }
+
   const targetTriple = getTargetTriple();
   const binaryPath = findCodexExecutable(targetTriple);
   const packageManager = detectPackageManager();
