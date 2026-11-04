@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodexLMLM — React Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Development/demo only: use a build tool for production. -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      :root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b1020; color: #f4f7ff; }
+      main { padding: 3rem; text-align: center; border: 1px solid #283451; border-radius: 1.25rem; background: #121a2e; box-shadow: 0 24px 80px #0006; }
+      h1 { margin: 0 0 .75rem; font-size: clamp(2rem, 6vw, 3.5rem); }
+      p { margin: 0; color: #aab7d2; }
+      code { color: #9dd6ff; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function MyApp() {
+        return (
+          <main>
+            <h1>Hello, world!</h1>
+            <p>React 18 is mounted successfully. <code>CodexLMLM</code> starter demo.</p>
+          </main>
+        );
+      }
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />);
+    </script>
+  </body>
+</html>
