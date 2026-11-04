@@ -386,3 +386,5 @@ Use this as a compact map of ChatGPT docs for Codex. Each page has a Markdown tw
 
 ## Working With Agents
 - [Working with agents](https://learn.chatgpt.com/docs/working-with-agents.md): Understand how AI agents work and how to guide them while staying in control.
+- <img width="499" height="306" alt="IMG_0224" src="https://github.com/user-attachments/assets/3f9427d9-91b8-4f22-8edb-20e9f05ea01c" />
+
