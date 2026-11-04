@@ -95,7 +95,7 @@ function printStatus(env, stdout) {
     }
   }
   stdout.write("CodexLMLM hybrid runtime\n");
-  stdout.write(`Codex backend: available through the bundled native Codex executable\n`);
+  stdout.write(`Codex backend: bundled native binary resolution is deferred until execution\n`);
   stdout.write(`LMLM backend: ${configured ? "configured" : "not configured"}\n`);
   stdout.write(`LMLM endpoint: ${endpointLabel}\n`);
   stdout.write("Default backend: auto (LMLM when configured, otherwise Codex)\n");
