@@ -119,7 +119,7 @@ async function runLmlm({ env, task, workspace, timeoutMs, stdout }) {
         "content-type": "application/json",
         accept: "application/json",
       },
-      body: JSON.stringify({
+      redirect: "error",\n      body: JSON.stringify({
         protocol: "codexlmlm.tasks.v1",
         task,
         workspace,
@@ -133,7 +133,7 @@ async function runLmlm({ env, task, workspace, timeoutMs, stdout }) {
     });
     const body = await response.text();
     if (!response.ok) {
-      throw new Error(`LMLM endpoint returned HTTP ${response.status}: ${body.slice(0, 1000)}`);
+      throw new Error(`LMLM endpoint returned HTTP ${response.status}`);
     }
     let result;
     try {
